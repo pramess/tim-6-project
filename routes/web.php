@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
 
 
-
-});
 
 Route::get('/master',function(){
 	return view('adminlte.master');
@@ -33,3 +29,5 @@ Route::post('/jawaban','StackController@jawabansave');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'HomeController@profile')->name('profile');
