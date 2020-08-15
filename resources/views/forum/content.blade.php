@@ -3,20 +3,17 @@
 @section('content')
 
 <div class="card">
-  <a href="/pertanyaan/add"><button type="submit" class="btn btn-primary">Create new post</button></a>
   <div class="card-body">
-
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
-
                     @forelse($pertanyaan as $key=> $pertanyaan)
                     <div class="post">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="{{asset('adminlte/dist/img/user1-128x128.jpg')}}" alt="user image">
                         <span class="username">
                           <a href="#">{{ $pertanyaan->nama_user}}</a>
-                  
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                         </span>
                         <span class="description">{{$pertanyaan->updated_at}}</span>
                       </div>

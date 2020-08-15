@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 use App\Pertanyaan;
 use App\Jawaban;
 
@@ -11,7 +12,7 @@ class StackController extends Controller
 {
     //
     public function add(){
-    	return view('items/addquestion');
+    	return view('forum/addquestion');
     }
 
 
@@ -24,7 +25,9 @@ class StackController extends Controller
 
      $pertanyaan=pertanyaan::create([
       "judul"=>$request["judul"],
-      "isi"=>$request["isi"]
+      "isi"=>$request["isi"],
+      "user_id"=>$request["user_id"],
+      "nama_user"=>$request["nama_user"]
 
     ]);
       return redirect('/pertanyaan')->with('success','Berhasil Disimpan!');
@@ -33,9 +36,9 @@ class StackController extends Controller
   
    }
    public function content(){
- 
+    
     $pertanyaan=pertanyaan::all();
-    return view('items.content',compact('pertanyaan')); //compact:mengirim menggunakan compact sehingga bisa diperlakukan sebagai array
+    return view('forum.content',compact('pertanyaan')); //compact:mengirim menggunakan compact sehingga bisa diperlakukan sebagai array
    }
 
    

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Pertanyaan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $pertanyaan=pertanyaan::all();
+        return view('home',compact('pertanyaan'));
+    }
+
+    public function profile()
+    {
+        return view('profile');
     }
 }
